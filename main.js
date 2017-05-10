@@ -6,15 +6,22 @@ var padboard = document.querySelector(".pads");
 var pad = document.querySelectorAll(".pad");
 
 
-var clap113 = new Audio("sounds/clap.wav");
-var hihat119 = new Audio("sounds/hihat.wav");
-var kick101 = new Audio("sounds/kick.wav");
-var openhat97 = new Audio("sounds/openhat.wav");
-var boom115 = new Audio("sounds/boom.wav");
-var ride100 = new Audio("sounds/ride.wav");
-var snare122 = new Audio("sounds/snare.wav");
-var tom120 = new Audio("sounds/tom.wav");
-var tink99 = new Audio("sounds/tink.wav");
+
+
+var sounds = [
+    {src: "sounds/clap.wav", id: 113},
+    {src: "sounds/hihat.wav", id: 119},
+    {src: "sounds/kick.wav", id: 101},
+    {src: "sounds/openhat.wav", id: 97},
+    {src: "sounds/boom.wav", id: 115},
+    {src: "sounds/ride.wav", id: 100},
+    {src: "sounds/snare.wav", id: 122},
+    {src: "sounds/tom.wav", id: 120},
+    {src: "sounds/tink.wav", id: 99}
+];
+
+
+
 
 
 
