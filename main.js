@@ -1,12 +1,9 @@
 // global variables
+window.onload = function() {
 
-
-var e;
-var padboard = document.querySelector(".pads");
-var pad = document.querySelectorAll(".pad");
-
-
-
+  var e;
+  var padboard = document.querySelector(".pads");
+  var pad = document.querySelectorAll(".pad");
 
 
 
@@ -18,26 +15,29 @@ var pad = document.querySelectorAll(".pad");
 
 
 
-function searchKeyPress(e) {
+
+
+
+  function searchKeyPress(e) {
     e = e || window.event;
 
     if (e.keyCode === 113) {
-        clap113.play();
-        console.log("Q");
+      clap113.play();
+      console.log("Q");
     }
 
 
-}
-
-
-var preload;
-
-function init() {
-  if (!createjs.Sound.initializeDefaultPlugins()) {
-    document.getElementById("error").style.display = "block";
-    document.getElementById("content").style.display = "none";
-    return;
   }
+
+
+  var preload;
+
+  function init() {
+    if (!createjs.Sound.initializeDefaultPlugins()) {
+      document.getElementById("error").style.display = "block";
+      document.getElementById("content").style.display = "none";
+      return;
+    }
 
   //examples.showDistractor("content");
   var assetsPath = "../audio/";
@@ -59,17 +59,37 @@ function init() {
   //   {src: "Game-Break.ogg", id: 12}  //OJR would prefer a new sound rather than a copy
   // ];
 
-  var sounds = [
-    {src: "sounds/clap.wav", id: 113},
-    {src: "sounds/hihat.wav", id: 119},
-    {src: "sounds/kick.wav", id: 101},
-    {src: "sounds/openhat.wav", id: 97},
-    {src: "sounds/boom.wav", id: 115},
-    {src: "sounds/ride.wav", id: 100},
-    {src: "sounds/snare.wav", id: 122},
-    {src: "sounds/tom.wav", id: 120},
-    {src: "sounds/tink.wav", id: 99}
-];
+  // var sounds = [
+  // {src: "sounds/clap.wav", id: 113},
+  // {src: "sounds/hihat.wav", id: 119},
+  // {src: "sounds/kick.wav", id: 101},
+  // {src: "sounds/openhat.wav", id: 97},
+  // {src: "sounds/boom.wav", id: 115},
+  // {src: "sounds/ride.wav", id: 100},
+  // {src: "sounds/snare.wav", id: 122},
+  // {src: "sounds/tom.wav", id: 120},
+  // {src: "sounds/tink.wav", id: 99}
+  // ];
+
+    // create a preloader to load the images.
+  var loader = new createjs.LoadQueue(false);
+  
+  // when all images are loaded call the handleAllImageLoaded function.
+  loader.on('complete', handleAllImagesLoaded, this);
+  
+  // provide a manifest of files and ids to be loaded.
+  loader.loadManifest([
+
+    {id: 113, src: "sounds/clap.wav"},
+    {id: 119, src: "sounds/hihat.wav"},
+    {id: 101, src: "sounds/kick.wav"},
+    {id: 97, src: "sounds/openhat.wav"},
+    {id: 115, src: "sounds/boom.wav"},
+    {id: 100, src: "sounds/ride.wav"},
+    {id: 122, src: "sounds/snare.wav"},
+    {id: 120, src: "sounds/tom.wav."},
+    {id: 90, src: "sounds/tink.wav"}
+    ]);
 
 
   createjs.Sound.alternateExtensions = ["mp3"]; // add other extensions to try loading if the src file extension is not supported
@@ -155,3 +175,5 @@ function playSound(target) {
   // const keys = Array.from(document.querySelectorAll('.key'));
   // keys.forEach(key => key.addEventListener('transitionend', removeTransition));
   // window.addEventListener('keydown', playSound);
+
+};
