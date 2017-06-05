@@ -1,4 +1,3 @@
-// global variables
 window.onload = function() {
   console.log("JS Beat Machine ready.");
 
@@ -10,7 +9,7 @@ window.onload = function() {
 
 
   // create a preloader to load the sounds.
-  var loader = new createjs.LoadQueue();
+  var loader = new createjs.LoadQueue(false);
   // install the SoundJS Sound to preload audio.
   loader.installPlugin(createjs.Sound);
   // add additional extension when .wav not supported.
@@ -19,17 +18,20 @@ window.onload = function() {
   loader.on("complete", handleComplete, this);
   // provide a manifest of files and ids to be loaded.
   loader.loadManifest([
-    {id: 113, src: "sounds/clap.wav"},
-    {id: 119, src: "sounds/hihat.wav"},
-    {id: 101, src: "sounds/kick.wav"},
-    {id: 97, src: "sounds/openhat.wav"},
-    {id: 115, src: "sounds/boom.wav"},
-    {id: 100, src: "sounds/ride.wav"},
-    {id: 122, src: "sounds/snare.wav"},
-    {id: 120, src: "sounds/tom.wav."},
-    {id: 90, src: "sounds/tink.wav"}
+    {id: 113, src: "assets/sounds/clap.wav"},
+    {id: 119, src: "assets/sounds/hihat.wav"},
+    {id: 101, src: "assets/sounds/kick.wav"},
+    {id: 97, src: "assets/sounds/openhat.wav"},
+    {id: 115, src: "assets/sounds/boom.wav"},
+    {id: 100, src: "assets/sounds/ride.wav"},
+    {id: 122, src: "assets/sounds/snare.wav"},
+    {id: 120, src: "assets/sounds/tom.wav."},
+    {id: 90, src: "assets/sounds/tink.wav"}
     ]);
-  console.log("load audio");
+
+  function handleComplete() {
+    console.log("All audio files have loaded.");
+  }
 
 function soundLoaded(event) {
   //examples.hideDistractor();
