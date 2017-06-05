@@ -107,7 +107,7 @@ function soundLoaded(event) {
 }
 
 function stop() {
-  if (preload !== null) {
+  if (preload != null) {
     preload.close();
   }
   createjs.Sound.stop();
@@ -116,7 +116,7 @@ function stop() {
 function playSound(target) {
   //Play the sound: play (src, interrupt, delay, offset, loop, volume, pan)
   var instance = createjs.Sound.play(target.id);
-  if (instance === null || instance.playState == createjs.Sound.PLAY_FAILED) {
+  if (instance == null || instance.playState == createjs.Sound.PLAY_FAILED) {
     return;
   }
   target.className = "gridBox active";
