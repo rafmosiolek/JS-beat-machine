@@ -45,6 +45,8 @@ window.onload = function(){
 		object.source = $(object).data("sound");
 		// load the audio file to the buffer.
 		loadAudio(object, object.source);
+		// add AudioContext method for a gain node.
+		object.volume = context.createGain();
 		
 		object.play = function() {
 			// place a new node in the AudioContext Interface.
@@ -53,6 +55,8 @@ window.onload = function(){
 			s.buffer = object.buffer;
 			// connect the audio source to system's default audio output (usually speakers or headphones).
 			s.connect(context.destination);
+			// ...
+			object.volume.connect(context.destination);
 			// play the sound.
 			s.start(0);
 			// attach the audio source to the pad object's s property.
