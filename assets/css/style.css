@@ -1,0 +1,60 @@
+html, body {
+    margin: 0;
+    background: #f3f3f3;
+
+}
+
+#wrapper {
+    overflow: hidden;
+    margin: 0 auto;
+
+}
+
+section {
+    height: 350px;
+}
+
+#pads {
+    background: blue; 
+
+    width: 350px;
+
+    float: left;
+
+    display: inline-flex;
+/*    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -o-flexbox;
+    display: -webkit-flex;*/
+
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    align-content: flex-start;
+}
+
+button {
+    background: orange;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+#volume-control {
+    background: green;
+    margin: 0 auto;
+    display: inline-flex;
+
+    width: 150px;
+    float: left;
+}
+
+#volume-control input {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 5px;
+    justify-content: flex-end;
+}
