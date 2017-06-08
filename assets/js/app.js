@@ -12,8 +12,9 @@ window.onload = function(){
 		// jQuery selects each of the button elements and listen for a click event. If the event occurs, calls the button element object’s play() method.
 		$('#pads button').click(function() {
 			this.play();
-
 		});
+
+		$("#pads button").attr("data-sound")
 	});
 
 	// Load audio files.
@@ -37,6 +38,20 @@ window.onload = function(){
 		};
 		request.send();
 	}
+
+	  function playSound(e) {
+    var audio = document.querySelector('audio[data-key="${e.keyCode}"]');
+    var key = document.querySelector('button[data-key="${e.keyCode}"]');
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+    var keys = Array.from(document.querySelectorAll('button'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
 
 	function addAudioProperties(object) {
 		// set the value for the name property matching the button id attribute.
