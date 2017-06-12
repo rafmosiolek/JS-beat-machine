@@ -14,7 +14,7 @@ window.onload = function(){
 			this.play();
 		});
 
-		$("#pads button").attr("data-sound")
+		$("#pads button").attr("data-sound");
 	});
 
 	// Load audio files.
