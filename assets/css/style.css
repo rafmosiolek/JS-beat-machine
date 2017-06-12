@@ -6,6 +6,10 @@ html, body {
 
 }
 
+input, label {
+    display: block;
+}
+
 #wrapper {
     overflow: hidden;
     margin: 100px auto;
@@ -75,7 +79,7 @@ button kbd {
     float: left;
 }
 
-#volume-control label {
+#volume-control h4 {
 
     display: block;
     width: 100%;
@@ -94,4 +98,6 @@ button kbd {
     height: 175px;
     margin: 20px auto;
     padding: 5px;
+    float: left;
+    clear: both;
 }
