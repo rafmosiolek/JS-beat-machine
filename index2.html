@@ -17,7 +17,7 @@
 
 			<div class="row"> <!-- first row -->
 
-				<button id="pad1" data-sound="assets/sounds/clap.wav" data-key="113">
+				<button id="pad1" data-sound="assets/sounds/clap.wav" data-key="81">
 					<kbd>Q</kbd>
 					<span class="sound">clap</span>
 				</button>
@@ -97,7 +97,7 @@
 				</datalist>
 			</div>
 			
-			
+
 		</section> <!-- end #volume-control -->
 
 
@@ -108,7 +108,7 @@
 
 	</div> <!-- end #wrapper -->
 
-	<audio data-key="113" src="assets/sounds/clap.wav"></audio>
+	<audio data-key="81" src="assets/sounds/clap.wav"></audio>
 	<audio data-key="119" src="assets/sounds/hihat.wav"></audio>
 	<audio data-key="101" src="assets/sounds/kick.wav"></audio>
 	<audio data-key="97" src="assets/sounds/openhat.wav"></audio>
@@ -125,5 +125,40 @@
 	<script src="assets/js/app.js"></script>
 	<!-- jQuery snippet via Google Developers -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+
+		function playAudio(e) {
+			var audio = document.querySelector("audio[data-key='${e.keyCode}']");
+			var pad = document.querySelectorAll("button[data-key='${e.keyCode}']");
+
+			if ( !audio ) return;
+
+			audio.currentTime = 0;
+			audio.play();
+		}
+
+
+
+  // function removeTransition(e) {
+  //   if (e.propertyName !== 'transform') return;
+  //   e.target.classList.remove('playing');
+  // }
+
+  // function playSound(e) {
+  //   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  //   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+  //   if (!audio) return;
+
+  //   key.classList.add('playing');
+  //   audio.currentTime = 0;
+  //   audio.play();
+  // }
+
+  // const keys = Array.from(document.querySelectorAll('.key'));
+  // keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  // window.addEventListener('keydown', playSound);
+
+
+	</script>
 </body>
 </html>
