@@ -39,21 +39,21 @@ window.onload = function(){
 		request.send();
 	}
 
-	  function playSound(e) {
-    var audio = document.querySelector('audio[data-key="${e.keyCode}"]');
-    var key = document.querySelector('button[data-key="${e.keyCode}"]');
-    if (!audio) return;
+		// function playSound(e) {
+			var audio = document.querySelector('audio[data-key="${e.keyCode}"]');
+			var key = document.querySelector('button[data-key="${e.keyCode}"]');
+			if (!audio) return;
 
-    key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
-  }
+			key.classList.add('playing');
+			audio.currentTime = 0;
+			audio.play();
+		}
 
-    var keys = Array.from(document.querySelectorAll('button'));
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  window.addEventListener('keydown', playSound);
+		var keys = Array.from(document.querySelectorAll('button'));
+		keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+		window.addEventListener('keydown', playSound);
 
-	function addAudioProperties(object) {
+		function addAudioProperties(object) {
 		// set the value for the name property matching the button id attribute.
 		object.name = object.id;
 		// set the source property to match the value of the HTML data-sound attribute.
